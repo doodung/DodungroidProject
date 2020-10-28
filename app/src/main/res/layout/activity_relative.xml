@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RelativeActivity">
+
+    <EditText
+        android:id="@+id/hi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginEnd="60dp"
+        android:text="hi"
+        android:layout_centerInParent="true"
+        android:layout_marginRight="60dp" />
+
+    <TextView
+        android:id="@+id/hihi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="아이디"
+        android:layout_above="@id/hi"
+        android:textSize="20dp"
+        android:layout_alignLeft="@id/hi"/>
+
+    <EditText
+        android:id="@+id/pas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/hi"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="59dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginRight="60dp"
+        android:text="hi"
+        android:textSize="15dp" />
+
+    <TextView
+        android:id="@+id/paspas"
+        android:textSize="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/pas"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="14dp"
+        android:layout_below="@id/hihi"
+        android:text="비밀번호" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="20dp"
+        android:text="로그인하기"
+        android:layout_below="@id/pas"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="60dp" />
+
+</RelativeLayout>
