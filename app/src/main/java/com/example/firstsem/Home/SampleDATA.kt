@@ -1,4 +1,4 @@
-package com.example.firstsem
+package com.example.firstsem.Home
 
 class SampleDATA (
     val title: String,

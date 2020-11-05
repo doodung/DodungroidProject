@@ -1,4 +1,4 @@
-package com.example.firstsem
+package com.example.firstsem.DataBinding
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,10 +6,8 @@ import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.widget.Toast
-import androidx.lifecycle.ComputableLiveData
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.liveData
+import com.example.firstsem.BaseActivity
 import com.example.firstsem.databinding.ActivityMainBinding
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -44,7 +42,7 @@ class MainActivity : AppCompatActivity() {
 
             LiveData.value= LiveData.value!!+1
             Toast.makeText(this,"로그인에 성공하였습니다",Toast.LENGTH_SHORT).show()
-            val intent = Intent(this,BaseActivity::class.java)
+            val intent = Intent(this, BaseActivity::class.java)
             startActivity(intent)
         }
         et_id.text.toString()

@@ -1,11 +1,12 @@
-package com.example.firstsem
+package com.example.firstsem.Study
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.firstsem.R
 
-class MotionLayoutActivity : AppCompatActivity() {
+class LinearActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_motion_layout)
+        setContentView(R.layout.activity_linear)
     }
 }

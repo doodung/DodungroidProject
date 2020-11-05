@@ -9,18 +9,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MotionLayoutActivity"></activity>
-        <activity android:name=".Recycler" />
-        <activity android:name=".BaseActivity" />
-        <activity android:name=".RelativeActivity" />
-        <activity android:name=".LinearActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity2"/>
+        <activity android:name=".Home.DetailActivity" />
+        <activity android:name=".Login.SignupActivity" />
+        <activity android:name=".Login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Study.MotionLayoutActivity" />
+        <activity android:name=".Home.RecyclerActivity" />
+        <activity android:name=".BaseActivity"/>
+
+        <activity android:name=".Study.RelativeActivity" />
+        <activity android:name=".Study.LinearActivity" />
+        <activity android:name=".DataBinding.MainActivity" />
     </application>
 
 </manifest>
