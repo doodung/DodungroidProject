@@ -31,7 +31,8 @@ class SignupActivity : AppCompatActivity() {
     }
 
     private fun showError(error : ResponseBody?)
-    {  val e = error ?: return
+    {
+        val e = error ?: return
         val ob = JSONObject(e.string())
         Toast.makeText(this, ob.getString ("message"),Toast. LENGTH_SHORT).show()
     }

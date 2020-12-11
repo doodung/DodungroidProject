@@ -34,7 +34,5 @@ class FirstFragment : Fragment() {
             getTabAt(0)?.text="INFO"
             getTabAt(1)?.text="OTHER"
         }
-        //ui작업 등
     }
-
 }
