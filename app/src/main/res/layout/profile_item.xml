@@ -7,8 +7,8 @@
 
     <ImageView
         android:id="@+id/img_profile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
@@ -24,7 +24,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginBottom="8dp"
         android:text="안녕안녕안녕"
-        android:textSize="20dp"
+        android:textSize="16dp"
         app:layout_constraintBottom_toTopOf="@+id/subTitle"
         app:layout_constraintStart_toEndOf="@+id/img_profile"
         app:layout_constraintTop_toTopOf="parent"
@@ -35,7 +35,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="배고파배고파배고파"
-        android:textSize="14dp"
+        android:textSize="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/title"
         app:layout_constraintTop_toBottomOf="@+id/title" />

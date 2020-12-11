@@ -1,5 +1,6 @@
 package com.example.firstsem.Login
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
@@ -8,15 +9,19 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import com.example.firstsem.R
-import com.example.firstsem.Home.RecyclerActivity
+import com.example.firstsem.*
+import com.example.firstsem.Home.MainActivity2
 import kotlinx.android.synthetic.main.activity_login.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class LoginActivity : AppCompatActivity(),View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
         autoLogin()
     }
 
@@ -31,6 +36,7 @@ class LoginActivity : AppCompatActivity(),View.OnClickListener {
         }
     }
 
+    @SuppressLint("CommitPrefEdits")
     fun autoLogin(){
         val preference = this.getSharedPreferences("temp", Context.MODE_PRIVATE)
         val editor: SharedPreferences.Editor = preference!!.edit()
@@ -41,7 +47,7 @@ class LoginActivity : AppCompatActivity(),View.OnClickListener {
         else
         {
             Toast.makeText(this, "자동로그인 되었습니다", Toast.LENGTH_SHORT).show()
-            val gotologinintent = Intent(this, RecyclerActivity::class.java)
+            val gotologinintent = Intent(this, MainActivity2::class.java)
             startActivity(gotologinintent)
             finish()
         }
@@ -60,19 +66,44 @@ class LoginActivity : AppCompatActivity(),View.OnClickListener {
         when (v!!.id) {
             R.id.btn_login -> {
                 checkboxLogin()
-                val gotologinintent = Intent(this, RecyclerActivity::class.java)
-                startActivity(gotologinintent)
-                finish()
+                val call : Call<ResponseSigninData> = MyServiceImpl.service.postSignin(
+                    RequestSigninData(
+                        email= et_id.text.toString(),
+                        password= et_pw.text.toString(),
+                    )
+                )
+                call.enqueue(object: Callback<ResponseSigninData> {
+                    override fun onFailure(call: Call<ResponseSigninData>, t: Throwable) {
+                        TODO("Not yet implemented")
+                    }
+                    override fun onResponse(
+                        call: Call<ResponseSigninData>,
+                        response: Response<ResponseSigninData>
+                    ) {
+                        if (response.isSuccessful) {
+                            if (response.body()!!.success) {
+                                val gotologinintent = Intent(this@LoginActivity, MainActivity2::class.java)
+                                Toast.makeText(this@LoginActivity, "로그인 완료!", Toast.LENGTH_SHORT).show()
+                                startActivity(gotologinintent)
+                                finish()
+                            }
+                        }
+                        else
+                        {
+                        }
+                    }
+                })
             }
 
             R.id.btn_gosignup -> {
                 val gosignupintent = Intent(this, SignupActivity::class.java)
                 startActivityForResult(gosignupintent,1001)
+                finish()
             }
         }
     }
 
-    fun checkboxLogin() {
+    private fun checkboxLogin() {
         val preference = this.getSharedPreferences("temp", Context.MODE_PRIVATE)
         val editor: SharedPreferences.Editor = preference!!.edit()
         if (cb_autologin.isChecked) {

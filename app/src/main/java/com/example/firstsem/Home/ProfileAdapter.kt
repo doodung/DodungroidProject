@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.firstsem.R
 
-class ProfileAdapter(private val context: Context): RecyclerView.Adapter<ProfileViewHolder>() {
+class ProfileAdapter(var context : Context): RecyclerView.Adapter<ProfileViewHolder>() {
     var data= mutableListOf<SampleDATA>()
 
     interface ItemClick

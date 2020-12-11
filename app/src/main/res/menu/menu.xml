@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/menu_brush"
-        android:icon="@drawable/ic_android_black_24dp"
-        android:title="Brush" />
-    <item
-        android:id="@+id/menu_camera"
-        android:icon="@drawable/ic_baseline_cloud_queue_24"
-        android:title="Camera" />
-    <item
         android:id="@+id/menu_profile"
         android:icon="@drawable/ic_baseline_check_circle_outline_24"
         android:title="Profile" />
+    <item
+        android:id="@+id/menu_brush"
+        android:icon="@drawable/ic_android_black_24dp"
+        android:title="List" />
+    <item
+        android:id="@+id/menu_camera"
+        android:icon="@drawable/ic_baseline_cloud_queue_24"
+        android:title="Logout" />
+
 </menu>

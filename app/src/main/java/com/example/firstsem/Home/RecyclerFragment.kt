@@ -5,51 +5,42 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
 import android.view.View
-import androidx.appcompat.app.AppCompatActivity
+import android.view.ViewGroup
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.firstsem.R
-import kotlinx.android.synthetic.main.activity_recycler.*
+import kotlinx.android.synthetic.main.fragment_recycler.view.*
 
-class RecyclerActivity : AppCompatActivity() {
-    private  lateinit var profileAdapter: ProfileAdapter
+class RecyclerFragment : Fragment() {
+    lateinit var profileAdapter: ProfileAdapter
 
     @SuppressLint("CommitPrefEdits")
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_recycler)
-        val preference = this.getSharedPreferences("temp", Context.MODE_PRIVATE)
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val preference = context?.getSharedPreferences("temp", Context.MODE_PRIVATE)
         val editor: SharedPreferences.Editor = preference!!.edit()
+        val v = inflater.inflate(R.layout.fragment_recycler, container, false)
 
-        /*
-        btn_logout.setOnClickListener {
-            editor.remove("id")
-            editor.remove("pw")
-            editor.clear()
-            editor.apply()
+        profileAdapter= ProfileAdapter(context as MainActivity2)
 
-            Toast.makeText(this, "로그아웃 되었습니다.", Toast.LENGTH_SHORT).show()
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
-        */
-
-        profileAdapter= ProfileAdapter(this)
-
-        profileAdapter.itemClick=object : ProfileAdapter.ItemClick {
+        profileAdapter.itemClick=object :ProfileAdapter.ItemClick{
             override fun onClick(view: View, position: Int) {
-                val intent = Intent(baseContext, DetailActivity::class.java)
+                val intent = Intent(context, DetailActivity::class.java)
                 intent.putExtra("title", profileAdapter.data[position].title)
                 intent.putExtra("subtitle", profileAdapter.data[position].subTitle)
                 startActivity(intent)
+                //activity?.finish()
             }
         }
 
-        main_rcv.adapter=profileAdapter
-        main_rcv.layoutManager=LinearLayoutManager(this)
-        main_rcv.addItemDecoration(DividerItemDecoration(this, LinearLayoutManager.VERTICAL))
+        v.main_rcv.adapter=profileAdapter
+        v.main_rcv.layoutManager= LinearLayoutManager(context)
+        v.main_rcv.addItemDecoration(DividerItemDecoration(context, LinearLayoutManager.VERTICAL))
 
         profileAdapter.data= mutableListOf(
             SampleDATA("수정", "공주"),
@@ -62,5 +53,6 @@ class RecyclerActivity : AppCompatActivity() {
             SampleDATA("준엽", "구준엽")
         )
         profileAdapter.notifyDataSetChanged()
+        return v
     }
 }

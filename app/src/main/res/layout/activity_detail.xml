@@ -31,10 +31,10 @@
 
     <ImageView
         android:src="@mipmap/ic_launcher_round"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="80dp"
         android:id="@+id/imageView2"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
@@ -43,16 +43,21 @@
         android:id="@+id/tv_subtitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:background="#EAEAEA"
+        android:gravity="center_horizontal"
         android:padding="10dp"
+        android:textAlignment="center"
+        android:textColor="@color/colorAccent"
         android:textSize="20dp"
         android:textStyle="bold"
-        android:textAlignment="center"
-        android:background="#EAEAEA"
-        android:layout_marginTop="20dp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView2"
-        app:layout_constraintStart_toStartOf="@+id/imageView2"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        android:gravity="center_horizontal" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <TextView
         android:id="@+id/textView5"
@@ -69,7 +74,6 @@
         android:layout_height="wrap_content"
         android:text="내가 배가 고팠는데 진짜 배가 고프더라고 그래서 배가 너무너무 고픈데 진짜 더고파"
         android:layout_marginTop="15dp"
-        android:textColor="@color/colorAccent"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="@+id/textView5"
         app:layout_constraintStart_toStartOf="@+id/tv_subtitle"
